@@ -1,0 +1,3 @@
+from model_compressor.passes.validate.validate import validate
+from model_compressor.passes.validate.validate_adapted import validate_adapted
+from model_compressor.passes.validate.validate_operators import validate_all

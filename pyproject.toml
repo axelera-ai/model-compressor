@@ -1,0 +1,57 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "model-compressor"
+version = "0.1.0"
+description = "Graph-level model optimization: import, adapt, and compress exported PyTorch programs"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [{ name = "Matteo Spallanzani", email = "matteo.spallanzani@axelera.ai" }]
+
+dependencies = [
+    "torch==2.14.0",
+    "networkx>=3.6",
+    "pydantic>=2.13",
+    "typing-extensions>=4.12",
+    "packaging>=24.0",
+]
+
+[project.optional-dependencies]
+# Model zoo used by examples/ (ResNet, ShuffleNetV2, U-Net, SmolVLM2/SigLIP).
+examples = [
+    "torchvision==0.29.0",
+    "transformers>=4.57,<5",
+    "segmentation-models-pytorch>=0.5",
+    "ipython>=8.30",
+]
+# ONNX emission (examples/trt/emit_common.py).
+onnx = ["onnx>=1.19"]
+dev = [
+    "pytest>=8.3",
+    "ruff>=0.9",
+    "mypy>=1.14",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/model_compressor"]
+
+[tool.ruff]
+line-length = 120
+src = ["src", "examples"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.ruff.lint.per-file-ignores]
+# Package __init__.py files exist to re-export their submodules' public names.
+"__init__.py" = ["F401"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.12"
+packages = ["model_compressor"]
+ignore_missing_imports = true

@@ -1,0 +1,49 @@
+operator,dtype,commutation
+aten._native_batch_norm_legit_no_training.default,FP32,(all trivial)
+aten.add.Tensor,FP32,(all trivial)
+aten.cat.default,FP32,{tensors[*]} -> {out}
+aten.cat.default,INT8,{tensors[*]} -> {out}
+aten.clone.default,FP32,{self} -> {out}
+aten.clone.default,FP32,{self} -> {out}
+aten.clone.default,INT8,{self} -> {out}
+aten.clone.default,INT8,{self} -> {out}
+aten.constant_pad_nd.default,FP32,{self} -> {out}
+aten.constant_pad_nd.default,INT8,{self} -> {out}
+aten.convolution.default,FP32,(all trivial)
+aten.convolution.default,INT8,(all trivial)
+aten.embedding.default,FP32,{weight} -> {out}
+aten.expand.default,FP32,{self} -> {out}
+aten.expand.default,INT8,{self} -> {out}
+aten.gelu.default,FP32,(all trivial)
+aten.layer_norm.default,FP32,(all trivial)
+aten.linear.default,FP32,(all trivial)
+aten.linear.default,INT8,(all trivial)
+aten.max_pool2d_with_indices.default,FP32,{self} -> {out[0]}
+aten.max_pool2d_with_indices.default,INT8,{self} -> {out[0]}
+aten.mean.dim,FP32,(all trivial)
+aten.mul.Tensor,FP32,(all trivial)
+aten.permute.default,FP32,{self} -> {out}
+aten.permute.default,INT8,{self} -> {out}
+aten.relu.default,FP32,(all trivial)
+aten.rms_norm.default,FP32,(all trivial)
+aten.scaled_dot_product_attention.default,FP32,(all trivial)
+aten.scaled_dot_product_attention.default,FP32,(all trivial)
+aten.scaled_dot_product_attention.default,INT8,(all trivial)
+aten.scaled_dot_product_attention.default,INT8,(all trivial)
+aten.silu.default,FP32,(all trivial)
+aten.slice.Tensor,FP32,{self} -> {out}
+aten.slice.Tensor,INT8,{self} -> {out}
+aten.split_with_sizes.default,FP32,{self} -> {out[*]}
+aten.split_with_sizes.default,INT8,{self} -> {out[*]}
+aten.sym_size.int,FP32,(all trivial)
+aten.sym_size.int,INT8,(all trivial)
+aten.upsample_nearest2d.vec,FP32,{input} -> {out}
+aten.upsample_nearest2d.vec,INT8,{input} -> {out}
+aten.view.default,FP32,{self} -> {out}
+aten.view.default,INT8,{self} -> {out}
+xaten.fan_out.Tensor,FP32,{input} -> {out}
+xaten.fan_out.Tensor,INT8,{input} -> {out}
+xaten.fan_out.int,?,{input} -> {out}
+xaten.kv_cache.default,FP32,{key} -> {out[0]} ; {value} -> {out[1]}
+xaten.kv_cache.default,INT8,{key} -> {out[0]} ; {value} -> {out[1]}
+xaten.rotary_positional_embeddings.default,FP32,(all trivial)
