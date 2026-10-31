@@ -28,6 +28,9 @@ examples = [
 ]
 # ONNX emission (examples/trt/emit_common.py).
 onnx = ["onnx>=1.19"]
+# NVIDIA TensorRT Model Optimizer baseline (examples/ao/script.py).
+# `modelopt.torch._deploy` is a private module: pin tightly, it can break on any minor release.
+ao = ["nvidia-modelopt[onnx]>=0.47,<0.48"]
 dev = [
     "pytest>=8.3",
     "ruff>=0.9",
